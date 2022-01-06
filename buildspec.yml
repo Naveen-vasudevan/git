@@ -31,7 +31,7 @@ phases:
       - ls -lrt "$CODEBUILD_SRC_DIR/terraform-manifest"
       - terraform --version
       - terraform init 
-                
+      - terraform plan          
       - terraform apply -auto-approve 
   post_build:
     on-failure: CONTINUE   

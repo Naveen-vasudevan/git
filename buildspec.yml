@@ -18,7 +18,7 @@ phases:
       - tf_version=$TERRAFORM_VERSION
       - wget https://releases.hashicorp.com/terraform/"$TERRAFORM_VERSION"/terraform_"$TERRAFORM_VERSION"_linux_amd64.zip
       - unzip terraform_"$TERRAFORM_VERSION"_linux_amd64.zip
-      - mv terraform /usr/local/bin/
+      - mv terraform /usr/local/sbin/
   pre_build:
     on-failure: ABORT     
     commands:
@@ -32,7 +32,7 @@ phases:
       - terraform --version
       - terraform init 
       - terraform plan          
-      - terraform apply -input=false -auto-approve
+      - terraform apply -auto-approve
   post_build:
     on-failure: CONTINUE   
     commands:
